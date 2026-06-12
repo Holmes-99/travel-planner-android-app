@@ -1,4 +1,7 @@
 package com.example.travelplanner.repositories;
 
-public interface reservationRepository {
+import com.example.travelplanner.models.Reservation;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ReservationRepository <Reservation,Integer>{
 }
