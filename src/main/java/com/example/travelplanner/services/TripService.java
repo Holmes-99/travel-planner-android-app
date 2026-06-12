@@ -3,10 +3,12 @@ package com.example.travelplanner.services;
 import com.example.travelplanner.models.Trip;
 import com.example.travelplanner.repositories.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class TripService {
 
     @Autowired
