@@ -5,6 +5,7 @@ import com.example.travelplanner.repositories.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,10 +23,10 @@ public Reservation addReservation(Reservation reservation){
 
 public List<Reservation> getReservationsByUserId(Integer userId){
     List <Reservation> all = reservationRepository.findAll();
-    List<Reservation> result;
+    List<Reservation> result = new ArrayList<>();
 
     for(int i= 0 ; i< all.size() ; i++ ){
-        if (userId){
+        if (all.get(i).getUserId() == userId){
             result.add(all.get(i));
              }
         }
