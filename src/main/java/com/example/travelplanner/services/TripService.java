@@ -33,9 +33,13 @@ public class TripService {
     return tripRepository.save(trip);
     }
 
-    public Trip update Trip(Trip trip , Integer id){
+    public Trip updateTrip(Trip trip , Integer id){
        trip.setId(id);
        return tripRepository.save(trip);
+    }
+
+    public void deleteTrip(Integer id){
+        tripRepository.deleteById(id);
     }
 }
 
