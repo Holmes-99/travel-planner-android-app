@@ -16,4 +16,20 @@ public class ReservationService {
 public List<Reservation> getAllReservations(){
     return reservationRepository.findAll();
 }
+public Reservation addReservation(Reservation reservation){
+    return reservationRepository.save(reservation);
 }
+
+public List<Reservation> getReservationsByUserId(Integer userId){
+    List <Reservation> all = reservationRepository.findAll();
+    List<Reservation> result;
+
+    for(int i= 0 ; i< all.size() ; i++ ){
+        if (userId){
+            result.add(all.get(i));
+             }
+        }
+    return result;
+    }
+}
+
