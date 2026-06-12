@@ -1,8 +1,7 @@
 package com.example.travelplanner.models;
 import jakarta.persistence.*;
 
-        @Entity
-        @Table(name = "trips")
+        @Entity @Table(name = "trips")
 
 public class Trip {
     @Id
