@@ -3,10 +3,7 @@ package com.example.travelplanner.controllers;
 import com.example.travelplanner.models.Reservation;
 import com.example.travelplanner.services.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,7 +26,7 @@ public class ReservationController {
 
     @GetMapping("/reservations/user/{userId}")
 
-    public List<Reservation> getReservationsByUser(Integer userId) {
+    public List<Reservation> getReservationsByUser(@PathVariable Integer userId) {
         return reservationService.getReservationsByUserId(userId);
     }
 
