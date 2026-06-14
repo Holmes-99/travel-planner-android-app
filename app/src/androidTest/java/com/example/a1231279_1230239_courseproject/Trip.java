@@ -4,33 +4,39 @@ public class Trip {
     private int id;
     private String country;
     private String destination;
-    private int duration;
+    private int durationDays;
     private double price;
     private double rating;
     private String description;
     private String image;
 
-    public Trip(){}
-
+    public Trip() {
+    }
 
     public Trip(int id, String country, String destination,
-                int duration, double price, double rating,
+                int durationDays, double price, double rating,
                 String description, String image) {
         this.id = id;
         this.country = country;
         this.destination = destination;
-        this.duration = duration;
+        this.durationDays = durationDays;
         this.price = price;
         this.rating = rating;
         this.description = description;
         this.image = image;
     }
 
-    public int getId() {return id;}
+    public int getId() {
+        return id;
+    }
 
-    public void setId(int id) {this.id = id;}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public String getCountry() {return country;}
+    public String getCountry() {
+        return country;
+    }
 
     public void setCountry(String country) {
         this.country = country;
@@ -44,12 +50,12 @@ public class Trip {
         this.destination = destination;
     }
 
-    public int getDuration() {
-        return duration;
+    public int getDurationDays() {
+        return durationDays;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void setDurationDays(int durationDays) {
+        this.durationDays = durationDays;
     }
 
     public double getPrice() {
@@ -83,5 +89,6 @@ public class Trip {
     public void setImage(String image) {
         this.image = image;
     }
-
 }
+
+
