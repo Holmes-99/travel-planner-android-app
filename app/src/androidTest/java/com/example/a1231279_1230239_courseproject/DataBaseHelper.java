@@ -14,6 +14,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                           int version) {
         super(context, name, factory, version);
     }
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
 
 
     @Override //create all tables
