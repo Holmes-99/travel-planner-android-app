@@ -9,7 +9,7 @@ public class SharedPreManager {
     private static SharedPreManager myInstance=null;
     private static SharedPreferences sharedPreferences=null;
     private SharedPreferences.Editor editor=null;
-    private static SharedPreManager getInstance(Context context){
+    public static SharedPreManager getInstance(Context context){
         if(myInstance==null){
             myInstance=new SharedPreManager(context);
         }
