@@ -7,16 +7,12 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.List;
 
 public class IntroActivity extends AppCompatActivity {
-    private static final String API_URL = "http://10.0.2.2:8080/trips";
+    private static final String API_URL = "http://10.0.2.2:8080/trips";//
     ProgressBar progressBar;
     Button buttonConnect;
 
@@ -51,7 +47,7 @@ public class IntroActivity extends AppCompatActivity {
             db.insertTrip(trip);
         }
         Toast.makeText(this,"Connected!1 " + trips.size() + " trips loaded", Toast.LENGTH_SHORT).show();
-        Intent intent=new Intent(IntroActivity.this, MainActivity.class);
+    Intent intent=new Intent(IntroActivity.this, LoginActivity.class);// MAIN ACTIVITY IS LOGIN
         startActivity(intent);
         finish();
 
