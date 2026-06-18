@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
         SharedPreManager sharedPreManager = SharedPreManager.getInstance(this);
 
-        //auto-fill if remember me is checked
+        //pre-fill if remember me is checked
         if(sharedPreManager.readBoolean("rememberMe", false)){
             editTextEmail.setText(sharedPreManager.readString("email", ""));
             checkBoxRememberMe.setChecked(true);
