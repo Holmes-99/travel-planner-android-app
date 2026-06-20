@@ -8,7 +8,20 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 public class DataBaseHelper extends SQLiteOpenHelper {
-
+    private String encryptPassword(String password) {
+        try {
+            java.security.MessageDigest md =
+                    java.security.MessageDigest.getInstance("SHA-1");
+            byte[] messageDigest = md.digest(password.getBytes());
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : messageDigest) {
+                hexString.append(String.format("%02X", b));
+            }
+            return hexString.toString();
+        } catch (Exception e) {
+            return password;
+        }
+    }
     public DataBaseHelper(Context context, String name,
                           SQLiteDatabase.CursorFactory factory,
                           int version) {
@@ -65,7 +78,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         admin.put("FIRSTNAME", "Admin");
         admin.put("LASTNAME", "Admin");
         admin.put("EMAIL", "admin@admin.com");
-        admin.put("PASSWORD", "Admin123!");
+        admin.put("PASSWORD", encryptPassword("Admin123!"));
         admin.put("ROLE", "admin");
 
         db.insert("USERS", null, admin);
