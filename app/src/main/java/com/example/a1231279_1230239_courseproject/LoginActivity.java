@@ -16,6 +16,20 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class LoginActivity extends AppCompatActivity {
+    private String encryptPassword(String password) {
+        try {
+            java.security.MessageDigest md =
+                    java.security.MessageDigest.getInstance("SHA-1");
+            byte[] messageDigest = md.digest(password.getBytes());
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : messageDigest) {
+                hexString.append(String.format("%02X", b));
+            }
+            return hexString.toString();
+        } catch (Exception e) {
+            return password;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(cursor != null && cursor.moveToFirst()) {
 
                     String storedPassword = cursor.getString(cursor.getColumnIndexOrThrow("PASSWORD"));
-                    if (storedPassword.equals(password)) {
+                    if (storedPassword.equals(encryptPassword(password))) {
 
                         int userId = cursor.getInt(cursor.getColumnIndexOrThrow("ID"));
                         String firstName = cursor.getString(cursor.getColumnIndexOrThrow("FIRSTNAME"));
