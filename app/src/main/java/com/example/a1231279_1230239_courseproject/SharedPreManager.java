@@ -15,7 +15,6 @@ public class SharedPreManager {
         }
         return myInstance;
         }
-
         private SharedPreManager(Context context){
         sharedPreferences=context.getSharedPreferences(
                 SHARED_PREF_NAME,Context.MODE_PRIVATE);
