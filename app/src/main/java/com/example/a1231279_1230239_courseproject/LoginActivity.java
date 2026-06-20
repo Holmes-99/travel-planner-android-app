@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -36,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+        findViewById(android.R.id.content).startAnimation(
+                AnimationUtils.loadAnimation(this, R.anim.slide_in));
 
         EditText editTextEmail = findViewById(R.id.editText_email);
         EditText editTextPassword = findViewById(R.id.editText_password);
@@ -54,6 +57,9 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                buttonLogin.startAnimation(AnimationUtils.loadAnimation(LoginActivity.this, R.anim.scale));
+
+
                 String email = editTextEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
 
