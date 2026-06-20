@@ -29,6 +29,15 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+            <EditText
+                android:id="@+id/editText_Remail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -54,15 +63,6 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/editText_Remail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:ems="10"
-                android:hint="Email"
-                android:inputType="textEmailAddress" />
-
-            <EditText
                 android:id="@+id/editText_Rpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,15 +80,6 @@
                 android:hint="confirm password"
                 android:inputType="textPassword" />
 
-            <EditText
-                android:id="@+id/editText_phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:ems="10"
-                android:hint="phone number"
-                android:inputType="phone" />
-
             <Spinner
                 android:id="@+id/spinner_gender"
                 android:layout_width="match_parent"
@@ -100,6 +91,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp" />
+
+            <EditText
+                android:id="@+id/editText_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:ems="10"
+                android:hint="phone number"
+                android:inputType="phone" />
 
             <Button
                 android:id="@+id/button_register"
