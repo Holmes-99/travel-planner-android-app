@@ -17,10 +17,24 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private String encryptPassword(String password) {
+        try {
+            java.security.MessageDigest md =
+                    java.security.MessageDigest.getInstance("SHA-1");
+            byte[] messageDigest = md.digest(password.getBytes());
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : messageDigest) {
+                hexString.append(String.format("%02X", b));
+            }
+            return hexString.toString();
+    }catch(Exception e){
+                return password;
+            }
+        }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
 
         EditText editTextEmail = findViewById(R.id.editText_Remail);
@@ -108,7 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
         user.setEmail(email);
         user.setFirstName(firstName);
         user.setLastName(lastName);
-        user.setPassword(password);
+        user.setPassword(encryptPassword(password));
         user.setGender(gender);
         user.setMajor(major);
         user.setPhone(phone);
