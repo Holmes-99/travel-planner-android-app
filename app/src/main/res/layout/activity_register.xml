@@ -41,8 +41,7 @@
                     android:layout_marginBottom="12dp"
                     android:ems="10"
                     android:hint="First name"
-                    android:inputType="text"
-                    android:text="Name" />
+                    android:inputType="text" />
 
                 <EditText
                     android:id="@+id/editText_lastName"
@@ -51,8 +50,7 @@
                     android:layout_marginBottom="12dp"
                     android:ems="10"
                     android:hint="Last Name"
-                    android:inputType="text"
-                    android:text="Name" />
+                    android:inputType="text" />
             </LinearLayout>
 
             <EditText
@@ -98,7 +96,7 @@
                 android:layout_marginBottom="12dp" />
 
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/spinner_Rmajor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp" />
