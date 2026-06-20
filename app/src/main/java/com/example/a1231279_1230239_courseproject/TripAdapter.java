@@ -4,7 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+import android.widget.Button;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -39,6 +39,43 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
         holder.textViewDuration.setText(trip.getDurationDays() + " days");
         holder.textViewPrice.setText("₪" + trip.getPrice());
         holder.textViewRating.setText(trip.getRating() + "/5");
+
+        Button buttonFavorite = holder.itemView.findViewById(R.id.button_favorite);
+        Button buttonReserve = holder.itemView.findViewById(R.id.button_reserve);
+
+        DataBaseHelper db = new DataBaseHelper(
+                holder.itemView.getContext(), "TravelPlanner.db", null, 1);
+
+        SharedPreManager prefs = SharedPreManager.getInstance(
+                holder.itemView.getContext());
+        int userId = prefs.readInt("loggedInUserId", -1);
+
+// check if already favorite
+        if (db.isFavourite(userId, trip.getId())) {
+            buttonFavorite.setText("<3> Favorited");
+        } else {
+            buttonFavorite.setText("click to favorite");
+        }
+
+        buttonFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (db.isFavourite(userId, trip.getId())) {
+                    db.deleteFavourite(userId, trip.getId());
+                    buttonFavorite.setText("<3 Favorite");
+                } else {
+                    db.insertFavourite(userId, trip.getId());
+                    buttonFavorite.setText("❤ Favorited");
+                }
+            }
+        });
+
+        buttonReserve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onItemClick(holder.getAdapterPosition());
+            }
+        });
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -50,6 +50,22 @@
         android:textColor="#0D530E"
         android:textSize="14sp"
         android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Description:"
+        android:textColor="#306D29"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/textView_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="#0D530E"
+        android:textSize="14sp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -103,5 +119,25 @@
         android:textColor="#0D530E"
         android:textSize="14sp"
         android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/button_favorite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text=" Add to Favorite"
+            android:backgroundTint="#0D530E"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="4dp"/>
+
+        <Button
+            android:id="@+id/button_reserve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text=" Reserve"
+            android:backgroundTint="#306D29"
+            android:textColor="#FFFFFF"/>
 
 </LinearLayout>
