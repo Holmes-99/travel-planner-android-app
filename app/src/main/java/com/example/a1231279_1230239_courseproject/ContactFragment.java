@@ -38,6 +38,15 @@ public class ContactFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //locate button
+        buttonLocate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Intent.ACTION_VIEW,Uri.parse("geo:31.9769,35.2400?q=Birzeit+University"));
+                startActivity(intent);
+            }
+        });
+
 
     }
 }
