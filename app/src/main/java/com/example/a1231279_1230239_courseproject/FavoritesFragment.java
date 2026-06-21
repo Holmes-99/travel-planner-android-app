@@ -1,6 +1,5 @@
 package com.example.a1231279_1230239_courseproject;
 
-import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -61,8 +60,7 @@ public class FavoritesFragment extends Fragment {
             //card layout
                 LinearLayout card= new LinearLayout(getActivity());
                 card.setOrientation(LinearLayout.VERTICAL);
-                card.setBackgroundColor(0xFFFFFFFF);
-                card.setPadding(24, 24, 24, 24);
+                card.setBackgroundColor(0xFFE7E1B1);                card.setPadding(24, 24, 24, 24);
                 LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -75,12 +73,14 @@ public class FavoritesFragment extends Fragment {
                                 "\n⭐ " + rating + "/5   💲" + price +
                                 "   🕐 " + duration + " days");
                 tvInfo.setTextSize(15);
+                tvInfo.setTextColor(0xFF0D530E);
                 tvInfo.setPadding(0,0,0,12);
                 LinearLayout btnRow= new LinearLayout(getActivity());
                 btnRow.setOrientation(LinearLayout.HORIZONTAL);
 
                 Button btnDetail= new Button(getActivity());
                 btnDetail.setText("View Details");
+                btnDetail.setBackgroundColor(0xFF0D530E);
                 btnDetail.setTextColor(0xFFFFFFFF);
 
                 LinearLayout.LayoutParams btnParams = new LinearLayout.LayoutParams(
@@ -98,7 +98,8 @@ public class FavoritesFragment extends Fragment {
 
                 Button btnRemove = new Button(getActivity());
                 btnRemove.setText("Remove");
-                btnRemove.setTextColor(0xFFFFFFFF);
+                btnRemove.setBackgroundColor(0xFFFBF5DD);
+                btnRemove.setTextColor(0xFF0D530E);
 
                 btnRemove.setLayoutParams(new LinearLayout.LayoutParams(
                         0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
@@ -117,8 +118,8 @@ public class FavoritesFragment extends Fragment {
 
                 Button btnReserve = new Button(getActivity());
                 btnReserve.setText("Reserve");
-                btnReserve.setTextColor(0xFFFFFFFF);
-                btnReserve.setLayoutParams(new LinearLayout.LayoutParams(
+                btnReserve.setBackgroundColor(0xFF306D29);
+                btnReserve.setTextColor(0xFFFFFFFF);                btnReserve.setLayoutParams(new LinearLayout.LayoutParams(
                         0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
                 btnReserve.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -128,10 +129,12 @@ public class FavoritesFragment extends Fragment {
                 });
 
                 btnRow.addView(btnDetail);
+                btnRow.addView(btnReserve);
                 btnRow.addView(btnRemove);
+
                 card.addView(tvInfo);
                 card.addView(btnRow);
-                btnRow.addView(btnReserve);
+                listLayout.addView(card);
 
                 listLayout.addView(card);
             }
@@ -143,6 +146,7 @@ public class FavoritesFragment extends Fragment {
             TextView tv = new TextView(getActivity());
             tv.setText("No favorites yet. Add some trips!");
             tv.setTextSize(16);
+            tv.setTextColor(0xFF306D29);
             tv.setPadding(24,48,24,24);
             listLayout.addView(tv);
 
