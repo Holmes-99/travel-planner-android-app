@@ -1,7 +1,5 @@
 package com.example.a1231279_1230239_courseproject;
 
-import static androidx.activity.result.ActivityResultCallerKt.registerForActivityResult;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -31,13 +29,13 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
-    EditText editTextFirstName, editTextLastName, editTextPhone;
-    EditText editTextPassword, editTextConfirmPassword;
+    EditText editTextFirstName,editTextLastName,editTextPhone;
+    EditText editTextPassword,editTextConfirmPassword;
     Button buttonUpdate, buttonPickPhoto;
     ImageView imageViewProfile;
     String profilePicUri = "";
-    String currentMajor = "";
 
+    //pass encryption
     private String encryptPassword(String password) {
         try {
             java.security.MessageDigest md =
@@ -66,33 +64,32 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        editTextFirstName = view.findViewById(R.id.editText_profileFirstName);
-        editTextLastName = view.findViewById(R.id.editText_profileLastName);
-        editTextPhone = view.findViewById(R.id.editText_profilePhone);
+        editTextFirstName= view.findViewById(R.id.editText_profileFirstName);
+        editTextLastName =view.findViewById(R.id.editText_profileLastName);
+        editTextPhone= view.findViewById(R.id.editText_profilePhone);
         editTextPassword = view.findViewById(R.id.editText_profilePassword);
-        editTextConfirmPassword = view.findViewById(R.id.editText_profileConfirmPassword);
-        buttonUpdate = view.findViewById(R.id.button_updateProfile);
-        buttonPickPhoto = view.findViewById(R.id.button_pickPhoto);
-        imageViewProfile = view.findViewById(R.id.imageView_profile);
+        editTextConfirmPassword= view.findViewById(R.id.editText_profileConfirmPassword);
+        buttonUpdate= view.findViewById(R.id.button_updateProfile);
+        buttonPickPhoto= view.findViewById(R.id.button_pickPhoto);
+        imageViewProfile= view.findViewById(R.id.imageView_profile);
 
 
-        SharedPreManager prefs = SharedPreManager.getInstance(getActivity());
+        SharedPreManager prefs= SharedPreManager.getInstance(getActivity());
         int userId = prefs.readInt("loggedInUserId", -1);
 
-        DataBaseHelper db = new DataBaseHelper(
-                getActivity(), "TravelPlanner.db", null, 1);
+        DataBaseHelper db= new DataBaseHelper(getActivity(), "TravelPlanner.db", null, 1);
         //load user data
-        String email = prefs.readString("LoggedInEmail", "");
+        String email= prefs.readString("LoggedInEmail", "");
         Cursor cursor = db.getUserByEmail(email);
-        if (cursor != null && cursor.moveToFirst()) {
+        if (cursor != null && cursor.moveToFirst()){
             editTextFirstName.setText(cursor.getString(
                     cursor.getColumnIndexOrThrow("FIRSTNAME")));
             editTextLastName.setText(cursor.getString(
                     cursor.getColumnIndexOrThrow("LASTNAME")));
             editTextPhone.setText(cursor.getString(
                     cursor.getColumnIndexOrThrow("PHONE")));
-            String pic = cursor.getString(cursor.getColumnIndexOrThrow("PROFILEPIC"));
-            if (pic != null && !pic.isEmpty()) {
+            String pic= cursor.getString(cursor.getColumnIndexOrThrow("PROFILEPIC"));
+            if (pic!= null && !pic.isEmpty()){
                 imageViewProfile.setImageURI(Uri.parse(pic));
                 profilePicUri = pic;
             }
@@ -121,6 +118,10 @@ public class ProfileFragment extends Fragment {
                 }
                 if (firstName.length() < 3 || lastName.length() < 3) {
                     Toast.makeText(getActivity(), "Name must be at least 3 characters", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!phone.matches("[0-9]{10}")) {
+                    Toast.makeText(getActivity(), "Phone number must be 10 digits", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Cursor c= db.getUserByEmail(email);
@@ -153,15 +154,17 @@ public class ProfileFragment extends Fragment {
                 user.setEmail(email);
                 user.setGender(currentGender);
                 user.setPassword(finalPassword);
+                user.setMajor(currentMajor);
+
                 user.setprofilepic(profilePicUri);
 
                 int result= db.updateUser(user);
                 if (result >0){
                     prefs.writeString("LoggedInFirstName",firstName);
-                    Toast.makeText(getActivity(), "Profile updated!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Profile updated!",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(getActivity(), "Update failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Update failed",Toast.LENGTH_SHORT).show();
                 }
                 }
         });
