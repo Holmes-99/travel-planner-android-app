@@ -60,7 +60,6 @@ public class ReservationsFragment extends Fragment {
                 tv.setTextSize(15);
 
                 tv.setPadding(24,24,24,24);
-                tv.setBackgroundColor(0xFFFFFFFF);
                 tv.setBackgroundColor(0xFFE7E1B1);
                 tv.setTextColor(0xFF0D530E);
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
