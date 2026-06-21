@@ -82,7 +82,7 @@ public class SpecialFragment extends Fragment {
             cursor.close();
         }
         //no trips  with rating >=4.5
-        if (topRated.isEmpty()) {
+        if (topRated.isEmpty()){
             TextView tv = new TextView(getActivity());
             tv.setText("No Top Rated trips found.");
             tv.setTextSize(16);
@@ -90,12 +90,12 @@ public class SpecialFragment extends Fragment {
             listLayout.addView(tv);
             return;
         }
-        //show topRated
-        for (Trip trip : topRated) {
+        //show top rated
+        for (Trip trip :topRated){
             LinearLayout card = new LinearLayout(getActivity());
             card.setOrientation(LinearLayout.VERTICAL);
             card.setBackgroundColor(0xFFFFFFFF);
-            card.setPadding(24, 24, 24, 24);
+            card.setPadding(24,24,24,24);
             LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -103,10 +103,10 @@ public class SpecialFragment extends Fragment {
             card.setLayoutParams(cardParams);
 
             TextView tvInfo = new TextView(getActivity());
-            tvInfo.setText("🔥 TOP RATED \n📍 " + trip.getDestination() +
-                    ", " + trip.getCountry() +
-                    "\n⭐ " + trip.getRating() + "/5   $" + trip.getPrice() +
-                    "   🕐 " + trip.getDurationDays() + " days");
+            tvInfo.setText(
+                    "🔥 Top Rated \n🌍 " + trip.getDestination() + ", " + trip.getCountry() +
+                            "\n⭐ " + trip.getRating() + "/5    💰 " + trip.getPrice() +
+                            "    ⏳ " + trip.getDurationDays() + " days");
             tvInfo.setTextSize(15);
             tvInfo.setTextColor(0xFF1F6F5F);
             tvInfo.setPadding(0, 0, 0, 12);
@@ -133,7 +133,7 @@ public class SpecialFragment extends Fragment {
             });
 
 
-            // if the top rated isn't  favorited the user can favorite it
+            //if the top rated isn't  favorited the user can favorite it
 
             Button btnFav = new Button(getActivity());
             boolean isFav = db.isFavourite(userId, trip.getId());
