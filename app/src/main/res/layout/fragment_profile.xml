@@ -49,6 +49,29 @@
             android:layout_height="wrap_content"
             android:hint="Last Name"
             android:layout_marginBottom="12dp"/>
+        <EditText
+            android:id="@+id/editText_profileEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:enabled="false"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/editText_profileGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Gender"
+            android:enabled="false"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/editText_profileMajor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Major"
+            android:enabled="false"
+            android:layout_marginBottom="12dp"/>
 
         <EditText
             android:id="@+id/editText_profilePhone"
