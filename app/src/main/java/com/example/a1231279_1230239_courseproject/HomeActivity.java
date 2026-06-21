@@ -65,10 +65,10 @@ public class HomeActivity extends AppCompatActivity {
                         } else if (id == R.id.nav_favorites) {
                             fragment = new FavoritesFragment();
                         }
-                        /*
+
                         else if (id == R.id.nav_special) {
                             fragment = new SpecialFragment();
-                        } else if (id == R.id.nav_profile) {
+                        } /*else if (id == R.id.nav_profile) {
                             fragment = new ProfileFragment();
                         } else if (id == R.id.nav_contact) {
                             fragment = new ContactFragment();*/ //still are not created
