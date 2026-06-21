@@ -133,8 +133,7 @@ public class SpecialFragment extends Fragment {
             });
 
 
-            //if the top rated isn't  favorited the user can favorite it
-
+            //if the top rated isnt  favorited the user can favorite it
             Button btnFav = new Button(getActivity());
             boolean isFav = db.isFavourite(userId, trip.getId());
             btnFav.setText(isFav ? "❤ Favorited" : "🤍 Add Favorite");
@@ -149,13 +148,11 @@ public class SpecialFragment extends Fragment {
                     if (db.isFavourite(userId, trip.getId())) {
                         db.deleteFavourite(userId, trip.getId());
                         btnFav.setText("🤍 Favorite");
-                        Toast.makeText(getActivity(),
-                                "Removed from favorites", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"Removed from favorites", Toast.LENGTH_SHORT).show();
                     } else {
                         db.insertFavourite(userId, trip.getId());
                         btnFav.setText("❤ Favorited");
-                        Toast.makeText(getActivity(),
-                                "Added to favorites!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"Added to favorites!", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
