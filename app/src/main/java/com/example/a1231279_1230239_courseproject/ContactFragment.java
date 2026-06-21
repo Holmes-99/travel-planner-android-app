@@ -46,6 +46,16 @@ public class ContactFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //email button
+        buttonEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:travelplanner@example.com"));
+                intent.putExtra(Intent.EXTRA_SUBJECT,"Travel Inquiry");
+                intent.putExtra(Intent.EXTRA_TEXT,"Hello, I would like to inquire about...");
+                startActivity(intent);
+            }
+        });
 
 
     }
