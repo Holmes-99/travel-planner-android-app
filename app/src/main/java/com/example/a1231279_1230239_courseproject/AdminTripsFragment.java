@@ -39,32 +39,25 @@ public class AdminTripsFragment extends Fragment {
     }
 
     private void loadTrips() {
+
+        //get trips
         listLayout.removeAllViews();
         Cursor cursor = db.getAllTrips();
 
-        if (cursor != null && cursor.moveToFirst()) {
+        if (cursor !=null&& cursor.moveToFirst()) {
             do {
-                int tripId = cursor.getInt(cursor.getColumnIndexOrThrow("ID"));
-                String destination = cursor.getString(
-                        cursor.getColumnIndexOrThrow("DESTINATION"));
-                String country = cursor.getString(
-                        cursor.getColumnIndexOrThrow("COUNTRY"));
-                double price = cursor.getDouble(
-                        cursor.getColumnIndexOrThrow("PRICE"));
+                int tripId= cursor.getInt(cursor.getColumnIndexOrThrow("ID"));
+                String destination= cursor.getString(cursor.getColumnIndexOrThrow("DESTINATION"));
+                String country= cursor.getString(cursor.getColumnIndexOrThrow("COUNTRY"));
+                double price= cursor.getDouble(cursor.getColumnIndexOrThrow("PRICE"));
 
-                double rating = cursor.getDouble(
-                        cursor.getColumnIndexOrThrow("RATING"));
-                int duration = cursor.getInt(
-                        cursor.getColumnIndexOrThrow("DURATIONDAYS"));
-                String description = cursor.getString(
-                        cursor.getColumnIndexOrThrow("DESCRIPTION"));
-                String image = cursor.getString(
-                        cursor.getColumnIndexOrThrow("IMAGE"));
-
-                Trip trip = new Trip(tripId, country, destination,
-                        duration, price, rating, description, image);
-
-                LinearLayout card = new LinearLayout(getActivity());
+                double rating= cursor.getDouble(cursor.getColumnIndexOrThrow("RATING"));
+                int duration= cursor.getInt(cursor.getColumnIndexOrThrow("DURATIONDAYS"));
+                String description= cursor.getString(cursor.getColumnIndexOrThrow("DESCRIPTION"));
+                String image= cursor.getString(cursor.getColumnIndexOrThrow("IMAGE"));
+                Trip trip= new Trip(tripId,country,destination,duration,price,rating, description, image);
+                //trip card
+                LinearLayout card= new LinearLayout(getActivity());
 
                 card.setOrientation(LinearLayout.VERTICAL);
                 card.setBackgroundColor(0xFFFFFFFF);
@@ -75,26 +68,25 @@ public class AdminTripsFragment extends Fragment {
                 params.setMargins(0, 0, 0, 12);
                 card.setLayoutParams(params);
 
-                TextView tvInfo = new TextView(getActivity());
+                TextView tvInfo= new TextView(getActivity());
                 tvInfo.setText("📍 " + destination + ", " + country +
                         "\n⭐ " + rating + "/5   💲" + price +
                         "   🕐 " + duration + " days");
                 tvInfo.setTextSize(14);
-                tvInfo.setPadding(0, 0, 0, 12);
+                tvInfo.setPadding(0,0,0,12);
 
-                LinearLayout btnRow = new LinearLayout(getActivity());
+                LinearLayout btnRow= new LinearLayout(getActivity());
                 btnRow.setOrientation(LinearLayout.HORIZONTAL);
-
-                Button btnEdit = new Button(getActivity());
+                //edit trip
+                Button btnEdit= new Button(getActivity());
                 btnEdit.setText("Edit");
-
                 btnEdit.setBackgroundColor(0xFF306D29);
                 btnEdit.setTextColor(0xFFFFFFFF);
-                LinearLayout.LayoutParams editParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams editParams= new LinearLayout.LayoutParams(
                         0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
-                editParams.setMargins(0, 0, 8, 0);
+                editParams.setMargins(0,0,8,0);
                 btnEdit.setLayoutParams(editParams);
-
+                //delete trip
                 Button btnDelete = new Button(getActivity());
                 btnDelete.setText("Delete");
                 btnDelete.setBackgroundColor(0xFFE57373);
@@ -104,17 +96,17 @@ public class AdminTripsFragment extends Fragment {
 
                 btnEdit.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
-                        AdminEditTripFragment editFragment = new AdminEditTripFragment();
-                        Bundle args = new Bundle();
+                    public void onClick(View v){
+                        AdminEditTripFragment editFragment= new AdminEditTripFragment();
+                        Bundle args= new Bundle();
                         args.putInt("tripId", trip.getId());
-                        args.putString("destination", trip.getDestination());
-                        args.putString("country", trip.getCountry());
-                        args.putInt("durationDays", trip.getDurationDays());
-                        args.putDouble("price", trip.getPrice());
-                        args.putDouble("rating", trip.getRating());
-                        args.putString("description", trip.getDescription());
-                        args.putString("image", trip.getImage());
+                        args.putString("destination",trip.getDestination());
+                        args.putString("country",trip.getCountry());
+                        args.putInt("durationDays",trip.getDurationDays());
+                        args.putDouble("price",trip.getPrice());
+                        args.putDouble("rating",trip.getRating());
+                        args.putString("description",trip.getDescription());
+                        args.putString("image",trip.getImage());
                         editFragment.setArguments(args);
                         getParentFragmentManager()
                                 .beginTransaction()
@@ -127,10 +119,9 @@ public class AdminTripsFragment extends Fragment {
 
                 btnDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(View v){
                         db.deleteTrip(tripId);
-                        Toast.makeText(getActivity(),
-                                "Trip deleted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"Trip deleted", Toast.LENGTH_SHORT).show();
                         loadTrips();
                     }
                 });
@@ -143,10 +134,11 @@ public class AdminTripsFragment extends Fragment {
 
             } while (cursor.moveToNext());
             cursor.close();
-        } else {
-            TextView tv = new TextView(getActivity());
+        }
+        else{
+            TextView tv= new TextView(getActivity());
             tv.setText("No trips found.");
-            tv.setPadding(24, 48, 24, 24);
+            tv.setPadding(24,48,24,24);
             listLayout.addView(tv);
         }
     }
