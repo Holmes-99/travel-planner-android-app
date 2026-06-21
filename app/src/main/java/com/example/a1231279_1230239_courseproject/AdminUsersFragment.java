@@ -136,6 +136,7 @@ public class AdminUsersFragment extends Fragment {
 
             long result= db.insertUser(admin);
             if (result!= -1) {
+                Toast.makeText(getActivity(), "Admin added Successfully!", Toast.LENGTH_SHORT).show();
                 loadUsers();
             } else {
                 Toast.makeText(getActivity(), "Email already in use", Toast.LENGTH_SHORT).show();
