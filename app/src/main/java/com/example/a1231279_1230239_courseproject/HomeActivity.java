@@ -102,6 +102,27 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void openTripDetail(Trip trip) {
+        TripDetailFragment detailFragment = new TripDetailFragment();
+
+        Bundle args = new Bundle();
+        args.putInt("tripId", trip.getId());
+        args.putString("destination", trip.getDestination());
+        args.putString("country", trip.getCountry());
+        args.putInt("durationDays", trip.getDurationDays());
+        args.putDouble("price", trip.getPrice());
+        args.putDouble("rating", trip.getRating());
+        args.putString("description", trip.getDescription());
+        args.putString("image", trip.getImage());
+
+        detailFragment.setArguments(args);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, detailFragment)
+                .addToBackStack(null)
+                .commit();
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
