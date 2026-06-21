@@ -135,8 +135,6 @@ public class FavoritesFragment extends Fragment {
                 btnRow.addView(btnReserve);
 
                 listLayout.addView(card);
-
-
             }
             cursor.close();
 
