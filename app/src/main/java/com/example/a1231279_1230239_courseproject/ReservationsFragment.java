@@ -69,7 +69,7 @@ public class ReservationsFragment extends Fragment {
             }
             cursor.close();
         }
-        else{
+       else {
             //if no reservations
             TextView tv = new TextView(getActivity());
             tv.setText("No reservations yet.");
