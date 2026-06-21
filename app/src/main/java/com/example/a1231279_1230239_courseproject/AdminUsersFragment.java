@@ -100,6 +100,7 @@ public class AdminUsersFragment extends Fragment {
         }
     }
     private void showAddAdminDialog(){
+        //show dialog for creating a new admin account
         View dialogView = LayoutInflater.from(getActivity())
                 .inflate(R.layout.dialog_add_admin, null);
 
@@ -118,6 +119,7 @@ public class AdminUsersFragment extends Fragment {
             String email= etEmail.getText().toString().trim();
             String password= etPassword.getText().toString().trim();
 
+            //validate input
             if (firstName.isEmpty()||lastName.isEmpty()||
                     email.isEmpty()|| password.isEmpty()){
                 Toast.makeText(getActivity(), "Fill all fields", Toast.LENGTH_SHORT).show();
@@ -146,6 +148,7 @@ public class AdminUsersFragment extends Fragment {
         builder.show();
     }
 
+    // hash password before saving
     private String encryptPassword(String password){
         try {
             java.security.MessageDigest md =
