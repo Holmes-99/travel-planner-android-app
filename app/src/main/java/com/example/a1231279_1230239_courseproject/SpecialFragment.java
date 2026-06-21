@@ -94,7 +94,7 @@ public class SpecialFragment extends Fragment {
         for (Trip trip :topRated){
             LinearLayout card = new LinearLayout(getActivity());
             card.setOrientation(LinearLayout.VERTICAL);
-            card.setBackgroundColor(0xFFFFFFFF);
+            card.setBackgroundColor(0xFFE7E1B1);
             card.setPadding(24,24,24,24);
             LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
@@ -108,7 +108,7 @@ public class SpecialFragment extends Fragment {
                             "\n⭐ " + trip.getRating() + "/5    💰 " + trip.getPrice() +
                             "    ⏳ " + trip.getDurationDays() + " days");
             tvInfo.setTextSize(15);
-            tvInfo.setTextColor(0xFF1F6F5F);
+            tvInfo.setTextColor(0xFF0D530E);
             tvInfo.setPadding(0, 0, 0, 12);
 
 
@@ -117,8 +117,8 @@ public class SpecialFragment extends Fragment {
             //details of top rated trips
             Button btnDetail = new Button(getActivity());
             btnDetail.setText("View Details");
+            btnDetail.setBackgroundColor(0xFF0D530E);
             btnDetail.setTextColor(0xFFFFFFFF);
-
 
             LinearLayout.LayoutParams btnParams = new LinearLayout.LayoutParams(
                     0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
@@ -138,6 +138,7 @@ public class SpecialFragment extends Fragment {
             Button btnFav = new Button(getActivity());
             boolean isFav = db.isFavourite(userId, trip.getId());
             btnFav.setText(isFav ? "❤ Favorited" : "🤍 Add Favorite");
+            btnFav.setBackgroundColor(0xFF306D29);
             btnFav.setTextColor(0xFFFFFFFF);
             btnFav.setLayoutParams(new LinearLayout.LayoutParams(
                     0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
