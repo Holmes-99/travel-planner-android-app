@@ -166,8 +166,6 @@ public class ProfileFragment extends Fragment {
                 else{
                     Toast.makeText(getActivity(), "Update failed", Toast.LENGTH_SHORT).show();
                 }
-
-
                 }
         });
 
