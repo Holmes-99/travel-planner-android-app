@@ -9,11 +9,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -57,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
         spinnerMajor.setAdapter(majorAdapter);
 
         //gender
-        String[] genderArray = { "Male","Female","Other"};
+        String[] genderArray = { "Male","Female"};
         ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, genderArray);
         spinnerGender.setAdapter(genderAdapter);
