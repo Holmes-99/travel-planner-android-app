@@ -51,15 +51,18 @@ public class ReservationsFragment extends Fragment {
                         cursor.getColumnIndexOrThrow("QUANTITY"));
 
                 TextView tv= new TextView(getActivity());
-                tv.setText(destination +
-                        "\nDate: " + date +
-                        "\nStatus: " + status +
-                        "\nType: " + type +
-                        "\nQuantity: " + quantity);
+                tv.setText(
+                        "📍 " + destination +
+                                "\n📅 Date: " + date +
+                                "\n✅ Status: " + status +
+                                "\n🧳 Type: " + type +
+                                "\n👥 Quantity: " + quantity);
                 tv.setTextSize(15);
+
                 tv.setPadding(24,24,24,24);
                 tv.setBackgroundColor(0xFFFFFFFF);
-
+                tv.setBackgroundColor(0xFFE7E1B1);
+                tv.setTextColor(0xFF0D530E);
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -74,6 +77,7 @@ public class ReservationsFragment extends Fragment {
             TextView tv = new TextView(getActivity());
             tv.setText("No reservations yet.");
             tv.setTextSize(16);
+            tv.setTextColor(0xFF306D29);
             tv.setPadding(24, 48, 24, 24);
             listLayout.addView(tv);
         }
