@@ -90,6 +90,10 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(RegisterActivity.this, "First name and last name must be at least 3 characters", Toast.LENGTH_SHORT).show();
             return;
         }
+                if (!phone.matches("[0-9]{10}")) {
+                    Toast.makeText(RegisterActivity.this, "Phone number must be 10 digits", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
         if(password.length() < 6){
             Toast.makeText(RegisterActivity.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
@@ -107,15 +111,13 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
             if (!hasletter || !hasnumber) {
-                Toast.makeText(RegisterActivity.this, "Password must contain at least one letter and one number",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "Password must contain at least one letter and one number", Toast.LENGTH_SHORT).show();
                 return;
             }
 
 
         if(!password.equals(confirmPassword)){
-            Toast.makeText(RegisterActivity.this, "Passwords do not match",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -132,11 +134,9 @@ public class RegisterActivity extends AppCompatActivity {
 
         long result = dbHelper.insertUser(user);
         if(result == -1){
-            Toast.makeText(RegisterActivity.this, "Registration failed,Email already in use!",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, "Registration failed,Email already in use!", Toast.LENGTH_SHORT).show();
             }else{
-            Toast.makeText(RegisterActivity.this, "Registration successful!",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
             startActivity(intent);
