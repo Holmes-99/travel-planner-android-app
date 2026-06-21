@@ -150,7 +150,7 @@ public class AdminUsersFragment extends Fragment {
 
     // hash password before saving
     private String encryptPassword(String password){
-        try {
+        try{
             java.security.MessageDigest md =
                     java.security.MessageDigest.getInstance("SHA-1");
             byte[] messageDigest= md.digest(password.getBytes());
@@ -159,7 +159,7 @@ public class AdminUsersFragment extends Fragment {
                 hexString.append(String.format("%02X", b));
             }
             return hexString.toString();
-        }catch (Exception e) {
+        }catch (Exception e){
             return password;
         }
     }
