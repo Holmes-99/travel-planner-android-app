@@ -145,9 +145,7 @@ public class TripDetailFragment extends Fragment {
                 reservation.setStatus("Confirmed");
 
                 db.insertReservation(reservation);
-                Toast.makeText(getActivity(),
-                        "Reservation confirmed!",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Reservation confirmed!", Toast.LENGTH_SHORT).show();
             }
         });
 
