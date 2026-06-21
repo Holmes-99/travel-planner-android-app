@@ -91,8 +91,7 @@ public class FavoritesFragment extends Fragment {
                 btnDetail.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        openTripDetail(trip);
-
+                        ((HomeActivity) getActivity()).openTripDetail(trip);
                     }
                 });
 
@@ -123,8 +122,7 @@ public class FavoritesFragment extends Fragment {
                 btnReserve.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        openTripDetail(trip);
-
+                        ((HomeActivity) getActivity()).openTripDetail(trip);
                     }
                 });
 
@@ -149,25 +147,5 @@ public class FavoritesFragment extends Fragment {
 
         }
             }
-    private void openTripDetail(Trip trip) {
-        TripDetailFragment detailFragment = new TripDetailFragment();
 
-        Bundle args = new Bundle();
-        args.putInt("tripId", trip.getId());
-        args.putString("destination", trip.getDestination());
-        args.putString("country", trip.getCountry());
-        args.putInt("durationDays", trip.getDurationDays());
-        args.putDouble("price", trip.getPrice());
-        args.putDouble("rating", trip.getRating());
-        args.putString("description", trip.getDescription());
-        args.putString("image", trip.getImage());
-
-        detailFragment.setArguments(args);
-
-        getParentFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_container, detailFragment)
-                .addToBackStack(null)
-                .commit();
-    }
 }
