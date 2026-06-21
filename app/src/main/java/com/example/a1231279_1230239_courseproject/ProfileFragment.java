@@ -146,10 +146,8 @@ public class ProfileFragment extends Fragment {
                 }
                 Cursor c= db.getUserByEmail(email);
                 String currentPassword="";
-                String currentGender="";
                 if(c!= null && c.moveToFirst()){
                     currentPassword= c.getString(c.getColumnIndexOrThrow("PASSWORD"));
-                    currentGender= c.getString(c.getColumnIndexOrThrow("GENDER"));
                     c.close();
                 }
                 String finalPassword=currentPassword;
@@ -169,8 +167,8 @@ public class ProfileFragment extends Fragment {
                 user.setFirstName(firstName);
                 user.setLastName(lastName);
                 user.setPhone(phone);
-                user.setEmail(email);
-                user.setGender(currentGender);
+                user.setEmail(editTextEmail.getText().toString());
+                user.setGender(editTextGender.getText().toString());
                 user.setPassword(finalPassword);
                 user.setprofilepic(profilePicUri);
 
