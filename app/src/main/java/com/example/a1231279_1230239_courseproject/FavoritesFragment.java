@@ -119,7 +119,8 @@ public class FavoritesFragment extends Fragment {
                 Button btnReserve = new Button(getActivity());
                 btnReserve.setText("Reserve");
                 btnReserve.setBackgroundColor(0xFF306D29);
-                btnReserve.setTextColor(0xFFFFFFFF);                btnReserve.setLayoutParams(new LinearLayout.LayoutParams(
+                btnReserve.setTextColor(0xFFFFFFFF);
+                btnReserve.setLayoutParams(new LinearLayout.LayoutParams(
                         0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
                 btnReserve.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -136,7 +137,6 @@ public class FavoritesFragment extends Fragment {
                 card.addView(btnRow);
                 listLayout.addView(card);
 
-                listLayout.addView(card);
             }
             cursor.close();
 
