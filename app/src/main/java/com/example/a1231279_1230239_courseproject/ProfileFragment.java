@@ -120,8 +120,7 @@ public class ProfileFragment extends Fragment {
                     return;
                 }
                 if (firstName.length() < 3 || lastName.length() < 3) {
-                    Toast.makeText(getActivity(),
-                            "Name must be at least 3 characters", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Name must be at least 3 characters", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Cursor c= db.getUserByEmail(email);
@@ -139,11 +138,9 @@ public class ProfileFragment extends Fragment {
                     if(password.length()<6 || !password.matches(".*[a-zA-Z].*")||!password.matches(".*[0-9].*")){
                         Toast.makeText(getActivity(),"Password must be at least 6 chars with letters and numbers",Toast.LENGTH_SHORT).show();
                         return;
-
                     }
                     if (!password.equals(confirmPassword)){
-                        Toast.makeText(getActivity(),
-                                "Passwords do not match",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Passwords do not match",Toast.LENGTH_SHORT).show();
                         return;
                     }
                     finalPassword= encryptPassword(password);
