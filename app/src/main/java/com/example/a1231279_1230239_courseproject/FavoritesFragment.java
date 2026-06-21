@@ -110,8 +110,7 @@ public class FavoritesFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         db.deleteFavourite(userId, tripId);
-                        Toast.makeText(getActivity(),
-                                "Removed from favorites", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Removed from favorites", Toast.LENGTH_SHORT).show();
                         loadFavorites();
                     }
                 });
