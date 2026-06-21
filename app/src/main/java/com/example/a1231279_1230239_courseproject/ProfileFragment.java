@@ -30,6 +30,7 @@ public class ProfileFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
     EditText editTextFirstName,editTextLastName,editTextPhone;
+    EditText editTextEmail, editTextGender, editTextMajor;
     EditText editTextPassword,editTextConfirmPassword;
     Button buttonUpdate, buttonPickPhoto;
     ImageView imageViewProfile;
@@ -57,7 +58,7 @@ public class ProfileFragment extends Fragment {
                 if (result.getResultCode() == Activity.RESULT_OK &&
                         result.getData() != null) {
                     Uri selectedImage = result.getData().getData();
-                    profilePicUri = selectedImage.toString();
+                    profilePicUri= selectedImage.toString();
                     imageViewProfile.setImageURI(selectedImage);
                 }
             });
@@ -66,9 +67,20 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         editTextFirstName= view.findViewById(R.id.editText_profileFirstName);
         editTextLastName =view.findViewById(R.id.editText_profileLastName);
+
+        editTextEmail = view.findViewById(R.id.editText_profileEmail);
+        editTextGender = view.findViewById(R.id.editText_profileGender);
+        editTextMajor = view.findViewById(R.id.editText_profileMajor);
+
+        editTextEmail.setEnabled(false);
+        editTextGender.setEnabled(false);
+        editTextMajor.setEnabled(false);
+
         editTextPhone= view.findViewById(R.id.editText_profilePhone);
         editTextPassword = view.findViewById(R.id.editText_profilePassword);
         editTextConfirmPassword= view.findViewById(R.id.editText_profileConfirmPassword);
+
+
         buttonUpdate= view.findViewById(R.id.button_updateProfile);
         buttonPickPhoto= view.findViewById(R.id.button_pickPhoto);
         imageViewProfile= view.findViewById(R.id.imageView_profile);
@@ -86,6 +98,14 @@ public class ProfileFragment extends Fragment {
                     cursor.getColumnIndexOrThrow("FIRSTNAME")));
             editTextLastName.setText(cursor.getString(
                     cursor.getColumnIndexOrThrow("LASTNAME")));
+            editTextEmail.setText(cursor.getString(
+                    cursor.getColumnIndexOrThrow("EMAIL")));
+
+            editTextGender.setText(cursor.getString(
+                    cursor.getColumnIndexOrThrow("GENDER")));
+
+            editTextMajor.setText(cursor.getString(
+                    cursor.getColumnIndexOrThrow("MAJOR")));
             editTextPhone.setText(cursor.getString(
                     cursor.getColumnIndexOrThrow("PHONE")));
             String pic= cursor.getString(cursor.getColumnIndexOrThrow("PROFILEPIC"));
@@ -127,11 +147,9 @@ public class ProfileFragment extends Fragment {
                 Cursor c= db.getUserByEmail(email);
                 String currentPassword="";
                 String currentGender="";
-                String currentMajor="";
                 if(c!= null && c.moveToFirst()){
                     currentPassword= c.getString(c.getColumnIndexOrThrow("PASSWORD"));
                     currentGender= c.getString(c.getColumnIndexOrThrow("GENDER"));
-                    currentMajor= c.getString(c.getColumnIndexOrThrow("MAJOR"));
                     c.close();
                 }
                 String finalPassword=currentPassword;
@@ -154,8 +172,6 @@ public class ProfileFragment extends Fragment {
                 user.setEmail(email);
                 user.setGender(currentGender);
                 user.setPassword(finalPassword);
-                user.setMajor(currentMajor);
-
                 user.setprofilepic(profilePicUri);
 
                 int result= db.updateUser(user);
