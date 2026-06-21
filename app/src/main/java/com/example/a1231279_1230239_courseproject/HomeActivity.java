@@ -58,19 +58,21 @@ public class HomeActivity extends AppCompatActivity {
 
                         if (id == R.id.nav_home) {
                             fragment = new HomeFragment();
-                       /* } else if (id == R.id.nav_trips) {
+                        } else if (id == R.id.nav_trips) {
                             fragment = new TripsFragment();
                         } else if (id == R.id.nav_reservations) {
                             fragment = new ReservationsFragment();
                         } else if (id == R.id.nav_favorites) {
                             fragment = new FavoritesFragment();
-                        } else if (id == R.id.nav_special) {
+                        }
+                        /*
+                        else if (id == R.id.nav_special) {
                             fragment = new SpecialFragment();
                         } else if (id == R.id.nav_profile) {
                             fragment = new ProfileFragment();
                         } else if (id == R.id.nav_contact) {
                             fragment = new ContactFragment();*/ //still are not created
-                        } else if (id == R.id.nav_logout) {
+                         else if (id == R.id.nav_logout) {
                             logout();
                             return true;
                         }
