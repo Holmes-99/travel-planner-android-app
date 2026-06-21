@@ -132,6 +132,9 @@ public class SpecialFragment extends Fragment {
                 }
             });
 
+
+            // if the top rated isn't  favorited the user can favorite it
+
             Button btnFav = new Button(getActivity());
             boolean isFav = db.isFavourite(userId, trip.getId());
             btnFav.setText(isFav ? "❤ Favorited" : "🤍 Add Favorite");
