@@ -163,7 +163,9 @@ public class ProfileFragment extends Fragment {
                     prefs.writeString("LoggedInFirstName",firstName);
                     Toast.makeText(getActivity(), "Profile updated!", Toast.LENGTH_SHORT).show();
                 }
-
+                else{
+                    Toast.makeText(getActivity(), "Update failed", Toast.LENGTH_SHORT).show();
+                }
 
 
                 }
