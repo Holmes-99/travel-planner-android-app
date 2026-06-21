@@ -70,9 +70,10 @@ public class FavoritesFragment extends Fragment {
                 card.setLayoutParams(cardParams);
 
                 TextView tvInfo= new TextView(getActivity());
-                tvInfo.setText(destination + ", " + country +
-                        "\n " + rating + "/5   $ " + price +
-                        "    " + duration + " days");
+                tvInfo.setText(
+                        "📍 " + destination + ", " + country +
+                                "\n⭐ " + rating + "/5   💲" + price +
+                                "   🕐 " + duration + " days");
                 tvInfo.setTextSize(15);
                 tvInfo.setPadding(0,0,0,12);
                 LinearLayout btnRow= new LinearLayout(getActivity());
