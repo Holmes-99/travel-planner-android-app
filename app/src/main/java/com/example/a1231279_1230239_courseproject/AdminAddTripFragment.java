@@ -29,7 +29,7 @@ public class AdminAddTripFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         EditText etDestination= view.findViewById(R.id.editText_addDestination);
         EditText etCountry= view.findViewById(R.id.editText_addCountry);
-        EditText etDuration= view.findViewById(R.id.editText_addDestination);
+        EditText etDuration= view.findViewById(R.id.editText_addDuration);
         EditText etPrice= view.findViewById(R.id.editText_addPrice);
         EditText etRating= view.findViewById(R.id.editText_addRating);
         EditText etDescription= view.findViewById(R.id.editText_addDescription);
@@ -49,7 +49,7 @@ public class AdminAddTripFragment extends Fragment {
                 String priceStr= etPrice.getText().toString().trim();
                 String ratingStr= etRating.getText().toString().trim();
                 String description= etDescription.getText().toString().trim();
-                String image = etImage.getText().toString().trim();
+                String image= etImage.getText().toString().trim();
 
                 if (destination.isEmpty() || country.isEmpty() || durationStr.isEmpty() || priceStr.isEmpty() || ratingStr.isEmpty() || description.isEmpty()) {
                     Toast.makeText(getActivity(), "Please fill all fields", Toast.LENGTH_SHORT).show();
