@@ -58,19 +58,21 @@ public class HomeActivity extends AppCompatActivity {
 
                         if (id == R.id.nav_home) {
                             fragment = new HomeFragment();
-                       /* } else if (id == R.id.nav_trips) {
+                        } else if (id == R.id.nav_trips) {
                             fragment = new TripsFragment();
                         } else if (id == R.id.nav_reservations) {
                             fragment = new ReservationsFragment();
                         } else if (id == R.id.nav_favorites) {
                             fragment = new FavoritesFragment();
-                        } else if (id == R.id.nav_special) {
+                        }
+
+                        else if (id == R.id.nav_special) {
                             fragment = new SpecialFragment();
-                        } else if (id == R.id.nav_profile) {
+                        } /*else if (id == R.id.nav_profile) {
                             fragment = new ProfileFragment();
                         } else if (id == R.id.nav_contact) {
                             fragment = new ContactFragment();*/ //still are not created
-                        } else if (id == R.id.nav_logout) {
+                         else if (id == R.id.nav_logout) {
                             logout();
                             return true;
                         }
@@ -100,8 +102,32 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void openTripDetail(Trip trip) {
+        TripDetailFragment detailFragment = new TripDetailFragment();
+
+        Bundle args = new Bundle();
+        args.putInt("tripId", trip.getId());
+        args.putString("destination", trip.getDestination());
+        args.putString("country", trip.getCountry());
+        args.putInt("durationDays", trip.getDurationDays());
+        args.putDouble("price", trip.getPrice());
+        args.putDouble("rating", trip.getRating());
+        args.putString("description", trip.getDescription());
+        args.putString("image", trip.getImage());
+
+        detailFragment.setArguments(args);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, detailFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (t.onOptionsItemSelected(item)) return true;
-        return super.onOptionsItemSelected(item);}
+        return super.onOptionsItemSelected(item);
+    }
+
     }

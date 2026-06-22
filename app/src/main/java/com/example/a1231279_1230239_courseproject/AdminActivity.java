@@ -38,7 +38,6 @@ public class AdminActivity extends AppCompatActivity {
 
         // load  fragment
         loadFragment(new AdminUsersFragment());
-
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override

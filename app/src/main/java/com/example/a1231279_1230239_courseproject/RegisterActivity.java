@@ -9,11 +9,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -57,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
         spinnerMajor.setAdapter(majorAdapter);
 
         //gender
-        String[] genderArray = { "Male","Female","Other"};
+        String[] genderArray = { "Male","Female"};
         ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, genderArray);
         spinnerGender.setAdapter(genderAdapter);
@@ -88,11 +85,18 @@ public class RegisterActivity extends AppCompatActivity {
 
         if(firstName.length() < 3 || lastName.length() < 3){
             Toast.makeText(RegisterActivity.this, "First name and last name must be at least 3 characters", Toast.LENGTH_SHORT).show();
-            return;}
+            return;
+        }
+                if (!phone.matches("[0-9]{10}")) {
+                    Toast.makeText(RegisterActivity.this, "Phone number must be 10 digits", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
         if(password.length() < 6){
             Toast.makeText(RegisterActivity.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
-            return;}
+            return;
+        }
+
 
         boolean hasletter = false;
         boolean hasnumber = false;
@@ -104,16 +108,15 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
             if (!hasletter || !hasnumber) {
-                Toast.makeText(RegisterActivity.this, "Password must contain at least one letter and one number",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "Password must contain at least one letter and one number", Toast.LENGTH_SHORT).show();
                 return;
             }
 
 
         if(!password.equals(confirmPassword)){
-            Toast.makeText(RegisterActivity.this, "Passwords do not match",
-                    Toast.LENGTH_SHORT).show();
-            return;}
+            Toast.makeText(RegisterActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         User user = new User();
         user.setEmail(email);
@@ -128,18 +131,19 @@ public class RegisterActivity extends AppCompatActivity {
 
         long result = dbHelper.insertUser(user);
         if(result == -1){
-            Toast.makeText(RegisterActivity.this, "Registration failed,Email already in use!",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, "Registration failed,Email already in use!", Toast.LENGTH_SHORT).show();
             }else{
-            Toast.makeText(RegisterActivity.this, "Registration successful!",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
 
-             }
+
+
          }
+     }
+
      });
    }
 }

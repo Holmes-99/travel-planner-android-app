@@ -87,8 +87,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         values.put("FIRSTNAME", user.getFirstName());
         values.put("LASTNAME", user.getLastName());
         values.put("MAJOR", user.getMajor());
-        values.put("ROLE", "user");//alwayes saved as user -no one registers as admin-
-        values.put("PHONE", user.getPhone());
+
+        //save user role
+        if (user.getRole() == null || user.getRole().isEmpty()) {
+            values.put("ROLE", "user");
+        } else {
+            values.put("ROLE", user.getRole());
+        }        values.put("PHONE", user.getPhone());
         values.put("EMAIL", user.getEmail());
         values.put("GENDER", user.getGender());
         values.put("PASSWORD", user.getPassword());
@@ -133,7 +138,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     //trips
-
     public long insertTrip(Trip trip) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -248,8 +252,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM FAVOURITES", null);
 
     }
-
-
 
 }
 
