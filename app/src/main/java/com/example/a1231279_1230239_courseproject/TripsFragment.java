@@ -22,6 +22,10 @@ import java.util.List;
 
 public class TripsFragment extends Fragment {
 
+
+    public TripsFragment() {
+        // Required empty public constructor
+    }
     private List <Trip> allTrips = new ArrayList<>();
     private List<Trip> filteredTrips = new ArrayList<>();
     private TripAdapter tripAdapter;
@@ -53,9 +57,7 @@ public class TripsFragment extends Fragment {
     private void filterTrips(String query, String country) {
         filteredTrips.clear();
         for (Trip trip : allTrips) {
-            boolean matchesSearch = query.isEmpty() ||
-                    trip.getDestination().toLowerCase()
-                            .contains(query.toLowerCase()) ||
+            boolean matchesSearch = query.isEmpty() || trip.getDestination().toLowerCase().contains(query.toLowerCase()) ||
                     trip.getCountry().toLowerCase()
                             .contains(query.toLowerCase());
             boolean matchesFilter = country.equals("All") ||

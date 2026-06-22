@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:layout_marginBottom="32dp"
-    android:background="#EEEEEE"
+    android:background="#FBF5DD"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="24dp"
@@ -27,7 +27,7 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="Travel Planner"
-        android:textColor="#1F6F5F"
+        android:textColor="#0D530E"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Discover amazing trips around the world!!"
-        android:textColor="#2FA084"
+        android:textColor="#306D29"
         android:textSize="14sp" />
 
     <Button
@@ -46,9 +46,9 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="24dp"
         android:layout_marginBottom="24dp"
-        android:backgroundTint="#2FA084"
+        android:backgroundTint="#0D530E"
         android:text="Connect"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FBF5DD" />
 
     <ProgressBar
         android:id="@+id/progressBar"

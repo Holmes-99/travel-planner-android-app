@@ -36,7 +36,7 @@ public class AdminActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        // Load default fragment
+        // load  fragment
         loadFragment(new AdminUsersFragment());
 
         navigationView.setNavigationItemSelectedListener(

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="#1F6F5F"
+    android:background="#0D530E"
     android:gravity="center"
     android:orientation="vertical"
     android:textAlignment="center"
@@ -26,6 +26,6 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="Travel Planner"
-        android:textColor="#FFFFFF"
+        android:textColor="#FBF5DD"
         android:textSize="32sp" />
 </LinearLayout>

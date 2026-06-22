@@ -52,7 +52,6 @@ public class IntroActivity extends AppCompatActivity {
         finish();
 
         }
-
     public void onConnectionFailed() {
     Toast.makeText(this,"Connection failed", Toast.LENGTH_SHORT).show();
     }

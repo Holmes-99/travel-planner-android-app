@@ -100,11 +100,8 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (t.onOptionsItemSelected(item)) return true;
-        return super.onOptionsItemSelected(item);
-    }
-
+        return super.onOptionsItemSelected(item);}
     }

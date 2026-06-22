@@ -31,8 +31,7 @@ public class SplashActivity extends AppCompatActivity {
                 Intent intent = new Intent(SplashActivity.this, IntroActivity.class);
                 startActivity(intent);
                 finish();
-            }
-        }, 3000);
+            }}, 3000);
 
             }
         }

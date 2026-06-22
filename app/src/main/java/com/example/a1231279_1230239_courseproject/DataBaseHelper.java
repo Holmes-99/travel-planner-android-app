@@ -31,9 +31,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
-
-
-    @Override //create all tables
+    @Override
+    //create all tables
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL("CREATE TABLE USERS(" +
@@ -71,8 +70,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "TRIPID INTEGER," +
                 "USERID INTEGER)");
 
-
-        //admin account
         ContentValues admin = new ContentValues();
 
         admin.put("FIRSTNAME", "Admin");

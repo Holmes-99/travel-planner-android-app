@@ -50,7 +50,6 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
                 holder.itemView.getContext());
         int userId = prefs.readInt("loggedInUserId", -1);
 
-// check if already favorite
         if (db.isFavourite(userId, trip.getId())) {
             buttonFavorite.setText("<3> Favorited");
         } else {

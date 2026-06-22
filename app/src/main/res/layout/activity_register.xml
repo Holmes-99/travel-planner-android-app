@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EEEEEE">
+        android:background="#FBF5DD">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="18dp"
                 android:text="Create Account"
-                android:textColor="#1F6F5F"
+                android:textColor="#306D29"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -105,9 +105,9 @@
                 android:id="@+id/button_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#2FA084"
+                android:backgroundTint="#306D29"
                 android:text="Register"
-                android:textColor="#EEEEEE" />
+                android:textColor="#FBF5DD" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

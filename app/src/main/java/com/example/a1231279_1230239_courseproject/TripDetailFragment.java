@@ -21,9 +21,13 @@ import java.util.Locale;
 
 public class TripDetailFragment extends Fragment {
 
+        public TripDetailFragment() {
+            // Required empty public constructor
+        }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+                // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_trip_detail, container, false);
     }
 
@@ -31,7 +35,6 @@ public class TripDetailFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Get trip data from Bundle
         Bundle args = getArguments();
         int tripId = args.getInt("tripId");
         String destination = args.getString("destination");
@@ -41,7 +44,6 @@ public class TripDetailFragment extends Fragment {
         double rating = args.getDouble("rating");
         String description = args.getString("description");
 
-        // Set views
         TextView textViewDestination = view.findViewById(R.id.textView_detailDestination);
         TextView textViewCountry = view.findViewById(R.id.textView_detailCountry);
         TextView textViewDuration = view.findViewById(R.id.textView_detailDuration);
@@ -64,7 +66,7 @@ public class TripDetailFragment extends Fragment {
         DataBaseHelper db = new DataBaseHelper(
                 getActivity(), "TravelPlanner.db", null, 1);
 
-        // Update favorite button
+        // update favorite button
         if (db.isFavourite(userId, tripId)) {
             buttonFavorite.setText("<3> Favorited");
         } else {
