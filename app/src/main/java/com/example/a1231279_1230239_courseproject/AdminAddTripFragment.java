@@ -85,6 +85,7 @@ public class AdminAddTripFragment extends Fragment {
                 } else {
                     Toast.makeText(getActivity(), "Failed to add trip", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
     }
