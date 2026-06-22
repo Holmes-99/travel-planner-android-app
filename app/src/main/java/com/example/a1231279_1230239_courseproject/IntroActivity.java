@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 
 public class IntroActivity extends AppCompatActivity {
-    private static final String API_URL = "http://10.0.2.2:8080/trips";//
+    private static final String API_URL = "private static final String API_URL = \"https://6a37ac2fc105017aa63931c9.mockapi.io/trips";
     ProgressBar progressBar;
     Button buttonConnect;
 
@@ -22,7 +22,7 @@ public class IntroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_intro);
 
     progressBar = findViewById(R.id.progressBar);
-    buttonConnect = findViewById(R.id.button_connect);
+    buttonConnect=findViewById(R.id.button_connect);
 
     buttonConnect.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -37,10 +37,8 @@ public class IntroActivity extends AppCompatActivity {
             buttonConnect.setEnabled(false);
         } else {
             progressBar.setVisibility(View.GONE);
-            buttonConnect.setEnabled(true);
-        }
+            buttonConnect.setEnabled(true);}
     }
-
     public void onConnectionSuccess(List<Trip> trips) {
         DataBaseHelper db = new DataBaseHelper(IntroActivity.this, "TravelPlanner.db", null, 1);
         for(Trip trip : trips) {

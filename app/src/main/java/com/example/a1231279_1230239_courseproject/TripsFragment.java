@@ -120,9 +120,9 @@ public class TripsFragment extends Fragment {
         recyclerViewTrips.setAdapter(tripAdapter);
 
         //filter
-        String[] filterOptions = {"All","USA","Japan",
+        String[] filterOptions = {"All","Turkey","USA","Japan",
                 "Germany", "France", "Italy","Egypt",
-                "China","Spain","Australia","Zimbabwe"};
+                "China","Australia","Zimbabwe","Spain"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 getActivity(), android.R.layout.simple_spinner_item, filterOptions);
         spinnerFilter.setAdapter(adapter);
