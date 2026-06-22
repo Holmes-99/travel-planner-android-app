@@ -76,17 +76,17 @@ public class AdminEditTripFragment extends Fragment {
                     return;
                 }
                 try {
-                    int duration = Integer.parseInt(durationStr);
-                    double price = Double.parseDouble(priceStr);
-                    double rating = Double.parseDouble(ratingStr);
+                    int duration= Integer.parseInt(durationStr);
+                    double price= Double.parseDouble(priceStr);
+                    double rating= Double.parseDouble(ratingStr);
 
-                    if (rating < 0 || rating > 5) {
+                    if(rating< 0|| rating > 5){
                         Toast.makeText(getActivity(), "Rating must be between 0 and 5", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
                     //obj for updated trip
-                    Trip trip = new Trip();
+                    Trip trip=new Trip();
                     trip.setId(tripId);
                     trip.setDestination(destination);
                     trip.setCountry(country);
@@ -96,17 +96,17 @@ public class AdminEditTripFragment extends Fragment {
                     trip.setDescription(description);
                     trip.setImage(image);
 
-                    int result = db.updateTrip(trip);
+                    int result=db.updateTrip(trip);
 
                     if (result > 0) {
-                        Toast.makeText(getActivity(), "Trip updated !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"Trip updated !",Toast.LENGTH_SHORT).show();
                         getParentFragmentManager().popBackStack();
                     } else {
-                        Toast.makeText(getActivity(), "Update failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"Update failed",Toast.LENGTH_SHORT).show();
                     }
                 }
                 catch(NumberFormatException e){
-                    Toast.makeText(getActivity(), "Enter valid numbers", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Enter valid numbers",Toast.LENGTH_SHORT).show();
                 }
             }
         });
