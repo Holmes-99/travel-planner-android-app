@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp"/>
+        android:padding="24dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,12 +20,57 @@
         android:layout_marginBottom="16dp"/>
 
     <EditText android:id="@+id/editText_addDestination"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:hint="Destination" android:layout_marginBottom="12dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Destination"
+        android:layout_marginBottom="12dp"/>
 
     <EditText android:id="@+id/editText_addCountry"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:hint="Country" android:layout_marginBottom="12dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Country"
+        android:layout_marginBottom="12dp"/>
 
+    <EditText android:id="@+id/editText_addDuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Duration (days)"
+        android:inputType="number"
+        android:layout_marginBottom="12dp"/>
 
-</ScrollView>
+    <EditText android:id="@+id/editText_addPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText android:id="@+id/editText_addRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Rating (0.0 - 5.0)"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText android:id="@+id/editText_addDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description"
+        android:minLines="3"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText android:id="@+id/editText_addImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Image URL (optional)"
+        android:layout_marginBottom="24dp"/>
+
+    <Button android:id="@+id/button_addTrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Trip"
+        android:backgroundTint="#2FA084"
+        android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+    </ScrollView>
