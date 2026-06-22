@@ -50,13 +50,14 @@ public class AdminAddTripFragment extends Fragment {
                 String ratingStr= etRating.getText().toString().trim();
                 String description= etDescription.getText().toString().trim();
                 String image= etImage.getText().toString().trim();
-
-                if (destination.isEmpty() || country.isEmpty() || durationStr.isEmpty() || priceStr.isEmpty() || ratingStr.isEmpty() || description.isEmpty()) {
+                //validate required fields
+                if (destination.isEmpty()||country.isEmpty()||durationStr.isEmpty()|| priceStr.isEmpty()|| ratingStr.isEmpty()|| description.isEmpty()){
                     Toast.makeText(getActivity(), "Please fill all fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 double rating= Double.parseDouble(ratingStr);
+                //validate rating range
                 if (rating <0 ||rating> 5){
                     Toast.makeText(getActivity(), "Rating must be between 0 and 5", Toast.LENGTH_SHORT).show();
                     return;
@@ -75,6 +76,7 @@ public class AdminAddTripFragment extends Fragment {
                 long result=db.insertTrip(trip);
                 if (result!=-1){
                     Toast.makeText(getActivity(), "Trip added successfully!", Toast.LENGTH_SHORT).show();
+                    //clear fields after successful insertion
                     etDestination.setText("");
                     etCountry.setText("");
                     etDuration.setText("");
@@ -82,7 +84,8 @@ public class AdminAddTripFragment extends Fragment {
                     etRating.setText("");
                     etDescription.setText("");
                     etImage.setText("");
-                } else {
+                }
+                else {
                     Toast.makeText(getActivity(), "Failed to add trip", Toast.LENGTH_SHORT).show();
                 }
 
