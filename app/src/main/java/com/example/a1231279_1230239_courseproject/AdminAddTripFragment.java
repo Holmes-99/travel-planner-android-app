@@ -7,52 +7,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AdminAddTripFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class AdminAddTripFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public AdminAddTripFragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AdminAddTripFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AdminAddTripFragment newInstance(String param1, String param2) {
-        AdminAddTripFragment fragment = new AdminAddTripFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -60,5 +23,69 @@ public class AdminAddTripFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_admin_add_trip, container, false);
+    }
+
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        EditText etDestination= view.findViewById(R.id.editText_addDestination);
+        EditText etCountry= view.findViewById(R.id.editText_addCountry);
+        EditText etDuration= view.findViewById(R.id.editText_addDestination);
+        EditText etPrice= view.findViewById(R.id.editText_addPrice);
+        EditText etRating= view.findViewById(R.id.editText_addRating);
+        EditText etDescription= view.findViewById(R.id.editText_addDescription);
+        EditText etImage= view.findViewById(R.id.editText_addImage);
+        Button btnAdd=view.findViewById(R.id.button_addTrip);
+
+        DataBaseHelper db=new DataBaseHelper(
+                getActivity(), "TravelPlanner.db", null, 1);
+
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String destination= etDestination.getText().toString().trim();
+                String country= etCountry.getText().toString().trim();
+                String durationStr= etDuration.getText().toString().trim();
+                String priceStr= etPrice.getText().toString().trim();
+                String ratingStr= etRating.getText().toString().trim();
+                String description= etDescription.getText().toString().trim();
+                String image = etImage.getText().toString().trim();
+
+                if (destination.isEmpty() || country.isEmpty() || durationStr.isEmpty() || priceStr.isEmpty() || ratingStr.isEmpty() || description.isEmpty()) {
+                    Toast.makeText(getActivity(), "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                double rating= Double.parseDouble(ratingStr);
+                if (rating <0 ||rating> 5){
+                    Toast.makeText(getActivity(), "Rating must be between 0 and 5", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Trip trip= new Trip();
+                trip.setDestination(destination);
+                trip.setCountry(country);
+                trip.setDurationDays(Integer.parseInt(durationStr));
+                trip.setPrice(Double.parseDouble(priceStr));
+                trip.setRating(rating);
+                trip.setDescription(description);
+                trip.setImage(image);
+
+
+                long result=db.insertTrip(trip);
+                if (result!=-1){
+                    Toast.makeText(getActivity(), "Trip added successfully!", Toast.LENGTH_SHORT).show();
+                    etDestination.setText("");
+                    etCountry.setText("");
+                    etDuration.setText("");
+                    etPrice.setText("");
+                    etRating.setText("");
+                    etDescription.setText("");
+                    etImage.setText("");
+                } else {
+                    Toast.makeText(getActivity(), "Failed to add trip", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
