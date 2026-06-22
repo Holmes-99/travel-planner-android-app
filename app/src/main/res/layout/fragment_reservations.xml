@@ -16,7 +16,7 @@
             android:text="My Reservations"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="#1F6F5F"
+            android:textColor="#306D29"
             android:layout_marginBottom="16dp"/>
 
         <LinearLayout

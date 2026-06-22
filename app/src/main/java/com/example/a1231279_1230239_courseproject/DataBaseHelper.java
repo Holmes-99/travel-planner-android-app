@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 public class DataBaseHelper extends SQLiteOpenHelper {
+
     private String encryptPassword(String password) {
         try {
             java.security.MessageDigest md =
@@ -158,6 +159,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public int updateTrip(Trip trip) {
         SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues values = new ContentValues();
         values.put("COUNTRY", trip.getCountry());
         values.put("DESTINATION", trip.getDestination());
@@ -166,10 +168,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         values.put("RATING", trip.getRating());
         values.put("DESCRIPTION", trip.getDescription());
         values.put("IMAGE", trip.getImage());
-        return db.update("TRIPS", values, "ID=?",
-                new String[]{
-                        String.valueOf(trip.getId())
-                });
+
+        return db.update(
+                "TRIPS",
+                values,
+                "ID = ?",
+                new String[]{String.valueOf(trip.getId())}
+        );
     }
 
     public int deleteTrip(int id) {

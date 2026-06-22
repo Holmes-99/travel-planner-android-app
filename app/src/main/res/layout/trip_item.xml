@@ -21,6 +21,13 @@
         android:layout_height="1dp"
         android:layout_marginBottom="8dp"
         android:background="#306D29" />
+    <ImageView
+        android:id="@+id/imageView_trip"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/travel_planner" />
 
     <TextView
         android:id="@+id/textView_destination"

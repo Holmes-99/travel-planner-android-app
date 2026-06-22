@@ -3,6 +3,8 @@ package com.example.a1231279_1230239_courseproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +37,23 @@ public class AdminActivity extends AppCompatActivity {
                 R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
+
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+// show logged in admin info in drawer header
+        SharedPreManager prefs = SharedPreManager.getInstance(this);
+        View headerView = navigationView.getHeaderView(0);
+
+        TextView textViewName = headerView.findViewById(R.id.textView_navName);
+        TextView textViewEmail = headerView.findViewById(R.id.textView_navEmail);
+
+        textViewName.setText(prefs.readString("LoggedInFirstName", ""));
+        textViewEmail.setText(prefs.readString("LoggedInEmail", ""));
 
         // load  fragment
         loadFragment(new AdminUsersFragment());

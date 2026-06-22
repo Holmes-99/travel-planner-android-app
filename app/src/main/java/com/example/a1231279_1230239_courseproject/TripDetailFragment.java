@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
@@ -43,6 +44,7 @@ public class TripDetailFragment extends Fragment {
         double price = args.getDouble("price");
         double rating = args.getDouble("rating");
         String description = args.getString("description");
+        String image = args.getString("image");
 
         TextView textViewDestination = view.findViewById(R.id.textView_detailDestination);
         TextView textViewCountry = view.findViewById(R.id.textView_detailCountry);
@@ -52,13 +54,29 @@ public class TripDetailFragment extends Fragment {
         TextView textViewDescription = view.findViewById(R.id.textView_detailDescription);
         Button buttonFavorite = view.findViewById(R.id.button_favorite);
         Button buttonReserve = view.findViewById(R.id.button_reserve);
+        ImageView imageView = view.findViewById(R.id.imageView);
+
+
+
+
 
         textViewDestination.setText(destination);
         textViewCountry.setText("Country: " + country);
+        if (description == null || description.trim().isEmpty()) {
+            textViewDescription.setText("No description available");
+        } else {
+            textViewDescription.setText("Description:\n" + description);
+        }
         textViewDuration.setText("Duration: " + durationDays + " days");
+
         textViewPrice.setText("Price: ₪" + price);
         textViewRating.setText("Rating: " + rating + "/5");
         textViewDescription.setText(description);
+        if (image == null || image.trim().isEmpty()) {
+            imageView.setImageResource(R.drawable.travel_planner);
+        } else {
+            imageView.setImageResource(R.drawable.travel_planner);
+        }
 
         SharedPreManager prefs = SharedPreManager.getInstance(getActivity());
         int userId = prefs.readInt("loggedInUserId", -1);

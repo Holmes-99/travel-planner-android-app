@@ -1,5 +1,7 @@
 package com.example.a1231279_1230239_courseproject;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -8,10 +10,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class FavoritesFragment extends Fragment {
@@ -55,9 +64,9 @@ public class FavoritesFragment extends Fragment {
                 int duration= cursor.getInt(cursor.getColumnIndexOrThrow("DURATIONDAYS"));
                 String description = cursor.getString(cursor.getColumnIndexOrThrow("DESCRIPTION"));
                 String image = cursor.getString(cursor.getColumnIndexOrThrow("IMAGE"));
-            Trip trip= new Trip(tripId,country,destination,duration,price,rating,description,image);
+                Trip trip= new Trip(tripId,country,destination,duration,price,rating,description,image);
 
-            //card layout
+                //card layout
                 LinearLayout card= new LinearLayout(getActivity());
                 card.setOrientation(LinearLayout.VERTICAL);
                 card.setBackgroundColor(0xFFE7E1B1);                card.setPadding(24, 24, 24, 24);
@@ -124,7 +133,7 @@ public class FavoritesFragment extends Fragment {
                 btnReserve.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        ((HomeActivity) getActivity()).openTripDetail(trip);
+                        showReservationDialog(userId, trip.getId(), trip.getDestination(), db);
                     }
                 });
 
@@ -150,6 +159,61 @@ public class FavoritesFragment extends Fragment {
             listLayout.addView(tv);
 
         }
+
+    }
+    private void showReservationDialog(int userId, int tripId,
+                                       String destination, DataBaseHelper db) {
+        View dialogView = LayoutInflater.from(getActivity())
+                .inflate(R.layout.dialog_reservation, null);
+
+        EditText editTextQuantity = dialogView.findViewById(R.id.editText_quantity);
+        Spinner spinnerType = dialogView.findViewById(R.id.spinner_type);
+
+        String[] typeOptions = {"Solo", "Group", "Family", "Couple"};
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(
+                getActivity(),
+                android.R.layout.simple_spinner_dropdown_item,
+                typeOptions
+        );
+        spinnerType.setAdapter(typeAdapter);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Reserve: " + destination);
+        builder.setView(dialogView);
+
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String quantityStr = editTextQuantity.getText().toString().trim();
+
+                if (quantityStr.isEmpty()) {
+                    Toast.makeText(getActivity(),
+                            "Please enter quantity",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int quantity = Integer.parseInt(quantityStr);
+                String type = spinnerType.getSelectedItem().toString();
+                String date = new SimpleDateFormat("yyyy-MM-dd",
+                        Locale.getDefault()).format(new Date());
+
+                Reservation reservation = new Reservation();
+                reservation.setUserId(userId);
+                reservation.setTripId(tripId);
+                reservation.setTripDestination(destination);
+                reservation.setQuantity(quantity);
+                reservation.setType(type);
+                reservation.setDate(date);
+                reservation.setStatus("Confirmed");
+
+                db.insertReservation(reservation);
+                Toast.makeText(getActivity(), "Reservation confirmed!", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
+    }
 
 }
