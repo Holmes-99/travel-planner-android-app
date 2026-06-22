@@ -31,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        ActionBarDrawerToggle t = new ActionBarDrawerToggle(this, drawerLayout,
+             t = new ActionBarDrawerToggle(this, drawerLayout,
                 toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         drawerLayout.addDrawerListener(t);
@@ -68,11 +68,11 @@ public class HomeActivity extends AppCompatActivity {
 
                         else if (id == R.id.nav_special) {
                             fragment = new SpecialFragment();
-                        } /*else if (id == R.id.nav_profile) {
+                        } else if (id == R.id.nav_profile) {
                             fragment = new ProfileFragment();
                         } else if (id == R.id.nav_contact) {
-                            fragment = new ContactFragment();*/ //still are not created
-                         else if (id == R.id.nav_logout) {
+                            fragment = new ContactFragment();
+                        }else if (id == R.id.nav_logout) {
                             logout();
                             return true;
                         }

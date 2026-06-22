@@ -29,10 +29,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("DROP TABLE IF EXISTS TRIPS");
+        db.execSQL("DROP TABLE IF EXISTS FAVOURITES");
+        db.execSQL("DROP TABLE IF EXISTS RESERVATIONS");
+        db.execSQL("DROP TABLE IF EXISTS USERS");
+        onCreate(db);
     }
     @Override
-    //create all tables
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL("CREATE TABLE USERS(" +
@@ -49,12 +52,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE TRIPS(" +
                 "ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "COUNTRY TEXT," +
-                "DESTINATION TEXT," +
+                "DESTINATION TEXT NOT NULL," +
                 "DURATIONDAYS INTEGER," +
                 "PRICE REAL," +
                 "RATING REAL," +
                 "DESCRIPTION TEXT," +
-                "IMAGE TEXT)");
+                "IMAGE TEXT,"+
+                "UNIQUE(COUNTRY, DESTINATION))");
         db.execSQL("CREATE TABLE RESERVATIONS(" +
                 "ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "TRIPID INTEGER," +
@@ -148,7 +152,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         values.put("RATING", trip.getRating());
         values.put("DESCRIPTION", trip.getDescription());
         values.put("IMAGE", trip.getImage());
-        return db.insert("TRIPS", null, values);
+       return  db.insertWithOnConflict("TRIPS", null, values, SQLiteDatabase.CONFLICT_IGNORE);
+
     }
 
     public int updateTrip(Trip trip) {
@@ -203,8 +208,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("SELECT * FROM RESERVATIONS WHERE USERID=?",
                 new String[]{
-                        String.valueOf(userId)
-        });
+                        String.valueOf(userId)});
 
     }
 

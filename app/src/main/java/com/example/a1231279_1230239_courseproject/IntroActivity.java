@@ -1,6 +1,7 @@
 package com.example.a1231279_1230239_courseproject;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 
 public class IntroActivity extends AppCompatActivity {
-    private static final String API_URL = "private static final String API_URL = \"https://6a37ac2fc105017aa63931c9.mockapi.io/trips";
+    private static final String API_URL = "https://6a37ac2fc105017aa63931c9.mockapi.io/trips";
     ProgressBar progressBar;
     Button buttonConnect;
 
@@ -45,7 +46,7 @@ public class IntroActivity extends AppCompatActivity {
             db.insertTrip(trip);
         }
         Toast.makeText(this,"Connected!1 " + trips.size() + " trips loaded", Toast.LENGTH_SHORT).show();
-    Intent intent=new Intent(IntroActivity.this, LoginActivity.class);// MAIN ACTIVITY IS LOGIN
+    Intent intent=new Intent(IntroActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
 
