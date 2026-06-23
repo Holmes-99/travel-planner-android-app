@@ -1,7 +1,10 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.network;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+
+import com.example.a1231279_1230239_courseproject.database.Trip;
+import com.example.a1231279_1230239_courseproject.activities.IntroActivity;
 
 import java.util.List;
 

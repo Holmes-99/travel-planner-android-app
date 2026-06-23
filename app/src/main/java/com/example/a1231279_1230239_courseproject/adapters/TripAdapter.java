@@ -1,4 +1,4 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.example.a1231279_1230239_courseproject.database.DataBaseHelper;
+import com.example.a1231279_1230239_courseproject.R;
+import com.example.a1231279_1230239_courseproject.utils.SharedPreManager;
+import com.example.a1231279_1230239_courseproject.database.Trip;
 
 import java.util.List;
 

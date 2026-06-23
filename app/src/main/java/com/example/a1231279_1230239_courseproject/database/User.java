@@ -1,4 +1,4 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.database;
 
 public class User {
 

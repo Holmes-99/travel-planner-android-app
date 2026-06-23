@@ -1,4 +1,4 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -15,6 +15,11 @@ import android.widget.Toast;
 import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.a1231279_1230239_courseproject.database.DataBaseHelper;
+import com.example.a1231279_1230239_courseproject.R;
+import com.example.a1231279_1230239_courseproject.database.Reservation;
+import com.example.a1231279_1230239_courseproject.utils.SharedPreManager;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

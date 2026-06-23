@@ -1,4 +1,6 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.network;
+
+import com.example.a1231279_1230239_courseproject.database.Trip;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

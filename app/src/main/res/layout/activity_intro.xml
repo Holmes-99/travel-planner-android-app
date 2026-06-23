@@ -11,7 +11,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="24dp"
-    tools:context=".IntroActivity">
+    tools:context=".activities.IntroActivity">
 
     <ImageView
         android:id="@+id/imageView_intro_logo"

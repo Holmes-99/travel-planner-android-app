@@ -1,4 +1,4 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.activities;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,6 +11,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.a1231279_1230239_courseproject.database.DataBaseHelper;
+import com.example.a1231279_1230239_courseproject.R;
+import com.example.a1231279_1230239_courseproject.database.User;
 
 
 public class RegisterActivity extends AppCompatActivity {

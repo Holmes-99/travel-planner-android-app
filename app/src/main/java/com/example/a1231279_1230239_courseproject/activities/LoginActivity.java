@@ -1,4 +1,4 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.activities;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -12,9 +12,10 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.a1231279_1230239_courseproject.database.DataBaseHelper;
+import com.example.a1231279_1230239_courseproject.R;
+import com.example.a1231279_1230239_courseproject.utils.SharedPreManager;
 
 public class LoginActivity extends AppCompatActivity {
     private String encryptPassword(String password) {

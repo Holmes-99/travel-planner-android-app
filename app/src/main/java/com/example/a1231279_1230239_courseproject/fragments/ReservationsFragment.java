@@ -1,4 +1,4 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.fragments;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.a1231279_1230239_courseproject.database.DataBaseHelper;
+import com.example.a1231279_1230239_courseproject.R;
+import com.example.a1231279_1230239_courseproject.utils.SharedPreManager;
 
 public class ReservationsFragment extends Fragment {
 

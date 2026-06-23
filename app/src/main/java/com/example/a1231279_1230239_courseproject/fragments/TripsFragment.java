@@ -1,4 +1,4 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.fragments;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -16,6 +16,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import com.example.a1231279_1230239_courseproject.database.DataBaseHelper;
+import com.example.a1231279_1230239_courseproject.R;
+import com.example.a1231279_1230239_courseproject.database.Trip;
+import com.example.a1231279_1230239_courseproject.adapters.TripAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

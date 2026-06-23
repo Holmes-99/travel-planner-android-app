@@ -1,4 +1,4 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,16 +6,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.example.a1231279_1230239_courseproject.fragments.ContactFragment;
+import com.example.a1231279_1230239_courseproject.fragments.FavoritesFragment;
+import com.example.a1231279_1230239_courseproject.fragments.HomeFragment;
+import com.example.a1231279_1230239_courseproject.fragments.ProfileFragment;
+import com.example.a1231279_1230239_courseproject.R;
+import com.example.a1231279_1230239_courseproject.fragments.ReservationsFragment;
+import com.example.a1231279_1230239_courseproject.utils.SharedPreManager;
+import com.example.a1231279_1230239_courseproject.fragments.SpecialFragment;
+import com.example.a1231279_1230239_courseproject.database.Trip;
+import com.example.a1231279_1230239_courseproject.fragments.TripDetailFragment;
+import com.example.a1231279_1230239_courseproject.fragments.TripsFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity {

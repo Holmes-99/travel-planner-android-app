@@ -1,4 +1,4 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.example.a1231279_1230239_courseproject.fragments.AdminAddTripFragment;
+import com.example.a1231279_1230239_courseproject.fragments.AdminReservationsFragment;
+import com.example.a1231279_1230239_courseproject.fragments.AdminTripsFragment;
+import com.example.a1231279_1230239_courseproject.fragments.AdminUsersFragment;
+import com.example.a1231279_1230239_courseproject.R;
+import com.example.a1231279_1230239_courseproject.utils.SharedPreManager;
 import com.google.android.material.navigation.NavigationView;
 
 public class AdminActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,6 +18,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.a1231279_1230239_courseproject.database.DataBaseHelper;
+import com.example.a1231279_1230239_courseproject.R;
+import com.example.a1231279_1230239_courseproject.utils.SharedPreManager;
+import com.example.a1231279_1230239_courseproject.database.User;
 
 public class ProfileFragment extends Fragment {
     public ProfileFragment() {

@@ -1,4 +1,4 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,6 +17,13 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.a1231279_1230239_courseproject.database.DataBaseHelper;
+import com.example.a1231279_1230239_courseproject.R;
+import com.example.a1231279_1230239_courseproject.database.Reservation;
+import com.example.a1231279_1230239_courseproject.utils.SharedPreManager;
+import com.example.a1231279_1230239_courseproject.database.Trip;
+import com.example.a1231279_1230239_courseproject.activities.HomeActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -44,7 +51,7 @@ public class FavoritesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         listLayout= view.findViewById(R.id.layout_favorites_list);
         db= new DataBaseHelper(getActivity(),"TravelPlanner.db",null, 1);
-        userId =SharedPreManager.getInstance(getActivity()).readInt("loggedInUserId",-1);
+        userId = SharedPreManager.getInstance(getActivity()).readInt("loggedInUserId",-1);
         loadFavorites();
     }
     private void loadFavorites() {

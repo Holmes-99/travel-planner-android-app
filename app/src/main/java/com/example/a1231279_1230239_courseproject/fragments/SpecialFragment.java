@@ -1,4 +1,4 @@
-package com.example.a1231279_1230239_courseproject;
+package com.example.a1231279_1230239_courseproject.fragments;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -12,6 +12,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.a1231279_1230239_courseproject.database.DataBaseHelper;
+import com.example.a1231279_1230239_courseproject.R;
+import com.example.a1231279_1230239_courseproject.utils.SharedPreManager;
+import com.example.a1231279_1230239_courseproject.database.Trip;
+import com.example.a1231279_1230239_courseproject.activities.HomeActivity;
 
 import java.util.ArrayList;
 import java.util.List;

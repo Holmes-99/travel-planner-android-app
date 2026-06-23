@@ -10,7 +10,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:textAlignment="center"
-    tools:context=".SplashActivity">
+    tools:context=".activities.SplashActivity">
 
     <ImageView
         android:id="@+id/imageView_logo"
