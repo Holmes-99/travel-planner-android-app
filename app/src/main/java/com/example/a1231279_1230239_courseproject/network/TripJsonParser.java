@@ -17,8 +17,7 @@ public class TripJsonParser {
         for (int i=0; i<jsonArray.length(); i++) {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
             Trip trip = new Trip();
-            trip.setId(jsonObject.getInt("id"));
-            trip.setCountry(jsonObject.getString("country"));
+            trip.setId(Integer.parseInt(jsonObject.getString("id")));            trip.setCountry(jsonObject.getString("country"));
             trip.setDestination(jsonObject.getString("destination"));
             trip.setDurationDays(jsonObject.getInt("durationDays"));
             trip.setPrice(jsonObject.getDouble("price"));

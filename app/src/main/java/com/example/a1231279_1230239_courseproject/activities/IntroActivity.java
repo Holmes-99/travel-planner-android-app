@@ -13,7 +13,7 @@ import com.example.a1231279_1230239_courseproject.network.ConnectionAsyncTask;
 import com.example.a1231279_1230239_courseproject.database.DataBaseHelper;
 import com.example.a1231279_1230239_courseproject.R;
 import com.example.a1231279_1230239_courseproject.database.Trip;
-
+import com.example.a1231279_1230239_courseproject.activities.LoginActivity;
 import java.util.List;
 
 public class IntroActivity extends AppCompatActivity {
