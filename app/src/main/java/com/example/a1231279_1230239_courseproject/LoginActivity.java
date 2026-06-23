@@ -57,7 +57,8 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonLogin.startAnimation(AnimationUtils.loadAnimation(LoginActivity.this, R.anim.scale));
+                buttonLogin.startAnimation(AnimationUtils.loadAnimation(
+                        LoginActivity.this, R.anim.scale));
 
 
                 String email = editTextEmail.getText().toString().trim();
@@ -89,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                         sharedPreManager.writeString("LoggedInRole", role);
                         sharedPreManager.writeString("LoggedInEmail", email);
 
-                        //Remember me handling
+                        //remember me handling
 
                         if (checkBoxRememberMe.isChecked()) {
                             sharedPreManager.writeString("email", email);
