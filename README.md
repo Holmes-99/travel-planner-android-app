@@ -89,3 +89,4 @@ ENCS515 Advanced Computer Systems Engineering Lab · First Semester 2026
 Birzeit University 🇵🇸
 
 [![GitHub](https://img.shields.io/badge/GitHub-Holmes--99-181717?style=flat&logo=github)](https://github.com/Holmes-99)
+[![GitHub](https://img.shields.io/badge/GitHub-LaraDaifallah-181717?style=flat&logo=github)](https://github.com/LaraDaifallah)
