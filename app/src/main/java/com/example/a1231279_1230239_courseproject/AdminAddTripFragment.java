@@ -62,7 +62,7 @@ public class AdminAddTripFragment extends Fragment {
                     Toast.makeText(getActivity(), "Rating must be between 0 and 5", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                //create obj for the new trip
                 Trip trip= new Trip();
                 trip.setDestination(destination);
                 trip.setCountry(country);

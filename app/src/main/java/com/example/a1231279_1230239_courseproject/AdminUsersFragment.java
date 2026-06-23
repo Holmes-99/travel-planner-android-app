@@ -72,6 +72,7 @@ public class AdminUsersFragment extends Fragment {
                 tvInfo.setTextSize(14);
                 tvInfo.setPadding(0,0,0,12);
 
+                // add delete button for each user
                 Button btnDelete= new Button(getActivity());
                 btnDelete.setText("Delete User");
                 btnDelete.setTextColor(0xFFFFFFFF);
@@ -120,8 +121,7 @@ public class AdminUsersFragment extends Fragment {
             String password= etPassword.getText().toString().trim();
 
             //validate input
-            if (firstName.isEmpty()||lastName.isEmpty()||
-                    email.isEmpty()|| password.isEmpty()){
+            if (firstName.isEmpty()||lastName.isEmpty()||email.isEmpty()|| password.isEmpty()){
                 Toast.makeText(getActivity(), "Fill all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -138,10 +138,11 @@ public class AdminUsersFragment extends Fragment {
 
             long result= db.insertUser(admin);
             if (result!= -1) {
-                Toast.makeText(getActivity(), "Admin added Successfully!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"Admin added Successfully!",Toast.LENGTH_SHORT).show();
                 loadUsers();
-            } else {
-                Toast.makeText(getActivity(), "Email already in use", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(getActivity(),"Email already in use",Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("Cancel", null);
@@ -151,15 +152,15 @@ public class AdminUsersFragment extends Fragment {
     // hash password before saving
     private String encryptPassword(String password){
         try{
-            java.security.MessageDigest md =
-                    java.security.MessageDigest.getInstance("SHA-1");
+            java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-1");
             byte[] messageDigest= md.digest(password.getBytes());
             StringBuilder hexString= new StringBuilder();
             for (byte b : messageDigest) {
                 hexString.append(String.format("%02X", b));
             }
             return hexString.toString();
-        }catch (Exception e){
+        }
+        catch (Exception e){
             return password;
         }
     }

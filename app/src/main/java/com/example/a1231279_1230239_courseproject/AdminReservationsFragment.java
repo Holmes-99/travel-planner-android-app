@@ -34,7 +34,7 @@ public class AdminReservationsFragment extends Fragment {
 
         Cursor cursor = db.getAllReservations();
 
-        if (cursor != null && cursor.moveToFirst()) {
+        if(cursor != null && cursor.moveToFirst()) {
             do {
                 int userId = cursor.getInt(cursor.getColumnIndexOrThrow("USERID"));
                 String destination = cursor.getString(
